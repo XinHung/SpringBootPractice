@@ -1,5 +1,6 @@
 package com.hung.springboot.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,36 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
+	
+	@Value("${author}")
+	private String author;
+	@Value("${learningDate}")
+	private String learningDate;
+	@Value("${learningTarget}")
+	private String learningTarget;
+	@Value("${com.hung.adminAcc}")
+	private String adminAcc;
+	@Value("${com.hung.adminPwd}")
+	private String adminPwd;
+	@Value("${com.hung.adminEmpId}")
+	private String adminEmpId;
+	
+	@GetMapping("")
+	public String appProp() {
+		String result = "<h1>";
+		
+		result += "Author: " + author + "<br>";
+		result += "LearningDate: " + learningDate + "<br>";
+		result += "LearningTarget: " + learningTarget + "<br><br>";
+		
+		result += "AdminAcc: " + adminAcc + "<br>";
+		result += "AdminPwd: " + adminPwd + "<br>";
+		result += "AdminEmpId: " + adminEmpId + "<br>";
+		
+		result += "</h1>";
+		
+		return result;
+	}
 
 	@GetMapping("/demo") // GET method
 	public String demo(){
