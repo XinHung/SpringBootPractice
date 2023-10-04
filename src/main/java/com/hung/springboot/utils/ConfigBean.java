@@ -3,6 +3,7 @@ package com.hung.springboot.utils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+//加入 @Component 啟動時自動載入
 @Component
 @ConfigurationProperties(prefix="com.hung")
 public class ConfigBean {
