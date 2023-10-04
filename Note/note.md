@@ -1,17 +1,17 @@
 # 常用 annotation
--@Controller:
-	-宣告此類別為一個 controller
--@RestController:
-	-結合了 @ResponseBody 和 @Controller
--@RequestMapping(value = "/url")
-	-定義此類別的網址
--GetMapping("/url")
-	-處理該 url 的 get method
--PostMapping("/url")
-	-處理該 url 的 post method
--@Value("${com.hung.adminEmpId}")
-	-讀取 app.prop 設定中的值
--@ConfigurationProperties(prefix="com.hung")
-	-讀取 app.prop 設定中 com.hung 的值
--@PropertySource(value="classpath:myApp.properties",encoding="utf-8")
-	-讀取自定義的 prop 設定檔
+>@Controller:
+>>宣告此類別為一個 controller
+>@RestController:
+>>結合了 @ResponseBody 和 @Controller
+>@RequestMapping(value = "/url")
+>>定義此類別的網址
+>GetMapping("/url")
+>>處理該 url 的 get method
+>PostMapping("/url")
+>>處理該 url 的 post method
+>@Value("${com.hung.adminEmpId}")
+>>讀取 app.prop 設定中的值
+>@ConfigurationProperties(prefix="com.hung")
+>>讀取 app.prop 設定中 com.hung 的值
+>@PropertySource(value="classpath:myApp.properties",encoding="utf-8")
+>>讀取自定義的 prop 設定檔
