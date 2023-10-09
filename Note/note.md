@@ -55,8 +55,8 @@ public class homeController {
 >```<a th:href="@{/download(fileName=${file})}" th:text="${file}"></a>```
 
 ### 判斷式(unless可以想成是else)
->```<div th:if="${empList} != null">
-<div th:unless="${empList} != null">empList is null!</div>```
+>```<div th:if="${empList} != null">```
+```<div th:unless="${empList} != null">empList is null!</div>```
 
 ### 加上  ?: _ 表示，如果 userName 不存在則顯示後面的預設文字
 >```<p th:text="${userName} ?: _">There is no userName attribute...</p>```
