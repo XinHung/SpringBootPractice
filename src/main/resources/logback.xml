@@ -24,5 +24,28 @@
 	<root level="INFO">
 		<appender-ref ref="FILE" />
 	</root>
+	
+	<appender name="ERR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} [%level] - %msg%n
+			</Pattern>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>D:\\MyAppLog\\appLog-%d{yyyy-MM-dd}-%i-err.log</fileNamePattern>
+			<!-- 只保留最近 180 天的 log -->
+			<MaxHistory>180</MaxHistory>
+			<!-- 當 log 超過設定大小，根據 %i 來滾動 -->
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+	</appender>
+	<root level="ERROR">
+		<appender-ref ref="ERR" />
+	</root>
 
 </configuration>
