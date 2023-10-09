@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>錯誤資訊</title>
+</head>
+<body>
+<div>
+  <!--<img th:src="@{/image/error.jpg}" width="200" height="200">-->
+  <table>
+    <tr>
+      <td>錯誤發生的URL</td>
+      <td th:text="${path}"></td>
+    </tr>
+    <tr>
+      <td>錯誤發生的時間</td>
+      <td th:text="${#dates.format(timestamp, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    <tr>
+      <td>HTTP狀態碼</td>
+      <td th:text="${status}"></td>
+    </tr>
+    <tr>
+      <td>錯誤原因</td>
+      <td th:text="${error}"></td>
+    </tr>
+    <tr>
+      <td>例外的類別</td>
+      <td th:text="${exception}"></td>
+    </tr>
+    <tr>
+      <td>例外訊息（如果是由例外引起的）</td>
+      <td th:text="${message}"></td>
+    </tr>
+    <tr>
+      <td>BindingResult 例外裡的各種錯誤（如果是由例外引起的）</td>
+      <td th:text="${errors}"></td>
+    </tr>
+    <tr>
+      <td>堆疊追蹤資訊（如果是由例外引起的）</td>
+      <td th:text="${trace}"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>404</title>
+</head>
+<body>
+<div>
+  <table>
+    <tr>
+      <td>不存在的URL</td>
+      <td th:text="${path}"></td>
+    </tr>
+    <tr>
+      <td>錯誤發生的時間</td>
+      <td th:text="${#dates.format(timestamp, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    <tr>
+      <td>HTTP狀態碼</td>
+      <td th:text="${status}"></td>
+    </tr>
+    <tr>
+      <td>错误原因</td>
+      <td th:text="${error}"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
