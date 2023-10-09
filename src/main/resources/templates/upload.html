@@ -17,7 +17,7 @@
     </p>
 </form>
 <ul>
-    <li  th:each="file : ${files}">
+    <li th:each="file: ${files}">
         <a th:href="@{/download(fileName=${file})}" th:text="${file}"></a>
     </li>
 </ul>
