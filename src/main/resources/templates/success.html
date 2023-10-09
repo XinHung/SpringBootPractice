@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="header :: css"></div>
+    <meta charset="UTF-8">
+    <title>註冊成功</title>
+</head>
+<body th:object="${user}">
+<div class="container">
+<h3>[[*{userName}]]，恭喜註冊成功！</h3>
+<table class="table table-bordered border-primary">
+    <tr>
+        <td class="align-middle text-center h2" colspan="2">你的資訊為</td>
+    </tr>
+    <tr>
+        <td class="align-middle text-center">使用者名稱</td>
+        <td class="align-middle" th:text="*{userName}"></td>
+    </tr>
+    <tr>
+        <td class="align-middle text-center">密碼</td>
+        <td class="align-middle" th:text="*{password}"></td>
+    </tr>
+    <tr>
+        <td class="align-middle text-center">性别</td>
+        <td class="align-middle" th:text="*{sex} ? '男' : '女'"></td>
+    </tr>
+    <tr>
+        <td class="align-middle text-center">E-mail</td>
+        <td class="align-middle" th:text="*{email}"></td>
+    </tr>
+    <tr>
+        <td class="align-middle text-center">密碼問題</td>
+        <td class="align-middle" th:text="*{pwdQuestion}"></td>
+    </tr>
+    <tr>
+        <td class="align-middle text-center">密碼答案</td>
+        <td class="align-middle" th:text="*{pwdAnswer}"></td>
+    </tr>
+    <tr>
+        <td class="align-middle text-center">註冊日期</td>
+        <td class="align-middle" th:text="*{#dates.format(regDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    <tr>
+		<td class="align-middle text-center">註冊IP</td>
+		<td class="align-middle" th:text="*{registerIp}"></td>
+	</tr>
+</table>
+</div>
+</body>
+</html>

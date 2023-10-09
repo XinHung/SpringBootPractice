@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>使用者登入</title>
+</head>
+<body>
+<p style="color: red;margin-top: 15px;font-size: 16px;"
+   th:text="${error}" th:if="${not #strings.isEmpty(error)}"></p>
+<form th:action="@{/user/login}" method="post">
+    <table>
+        <tr>
+            <td>帳號：</td>
+            <td><input type="text" name="userName"></td>
+        </tr>
+        <tr>
+            <td>密碼：</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="hidden" name="originUri"
+                       th:value="${originUri}">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="reset" value="重填"></td>
+            <td><input type="submit" value="登入"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

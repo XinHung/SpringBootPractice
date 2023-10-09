@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: common_header(~{::link})">
+    <meta charset="UTF-8">
+    
+    
+    <title>Home</title>
+</head>
+
+<body>
+<div class="container">
+	<div th:replace="header :: nav"></div>
+	
+    <h1 th:text="#{greeting}"></h1>
+    <p th:text="${message}"></p>
+    
+    <p>sessionName: <span th:text="${session.user.name}"></span></p>
+    
+    <!--/* 存取 List 特定 index value */-->
+    <p>empList[1]: <span th:text="${empList[1].name}"></span></p>
+    
+    <!--/* 如果不為空 (if用法) */-->
+    <div th:if="${empList} != null">
+		<table class="table table-bordered table-hover border-primary">
+			<thead>
+				<tr>
+					<th class="text-center">編號</th>
+					<th class="text-center">姓名</th>
+					<th class="text-center">年齡</th>
+					<th class="text-center">到職日</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--/* 存取整個 List value */-->
+				<tr th:each="empInfo: ${empList}">
+				    <td th:text="${empInfo.no}"</td>
+				    <td th:text="${empInfo.name}"</td>
+				    <td th:text="${empInfo.age}"></td>
+				    <td th:text="${empInfo.hireDate}"></td>
+				</tr>
+			</tbody>
+		</table>
+	    
+	    <!--/* 存取整個 List value */-->
+	    <!--/*
+			<tr th:each="empInfo: ${empList}">
+		    <td>Name: <span th:text="${empInfo.name}"></span></td>
+		    <td>No: <span th:text="${empInfo.no}"></span></td>
+		*/-->
+		    <!--/* 用||包住可以寫其他文字 */-->
+		<!--/*
+		    <td th:text="|Age: ${empInfo.age}|"></td><br>
+		</tr>
+		*/-->
+	</div>
+	<!--/* 如果為空 (else寫法，對應上方的if) */-->
+	<div th:unless="${empList} != null">empList is null!</div>
+	
+	<!--/* 加上  ?: _ 表示，如果userName不存在則顯示後面的預設文字 */-->
+	<p th:text="${userName} ?: _">There is no userName attribute...</p>
+	
+	<div th:replace="footer :: footer"></div>
+</div>
+</body>
+</html>

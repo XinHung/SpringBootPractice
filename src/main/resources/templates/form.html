@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用戶資訊</title>
+</head>
+<body>
+<form action="handle/obj" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>姓名：</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>密碼：</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td>
+                <input type="radio" name="gender">男
+                <input type="radio" name="gender">女
+            </td>
+        </tr>
+        <tr>
+            <td>年齡：</td>
+            <td><input type="text" name="age"></td>
+        </tr>
+        <tr>
+            <td>興趣：</td>
+            <td>
+                <input type="checkbox" name="interests">足球
+                <input type="checkbox" name="interests">排球
+                <input type="checkbox" name="interests">籃球
+                <input type="checkbox" name="interests">游泳
+            </td>
+        </tr>
+        <tr>
+            <td>出生日期：</td>
+            <td><input type="date" name="birthday"></td>
+        </tr>
+        <tr>
+            <td><input type="file" name="file"></td>
+        <tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="送出"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

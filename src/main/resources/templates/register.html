@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="header :: css"></div>
+    <meta charset="UTF-8">
+    <title>會員註冊</title>
+</head>
+<body th:object="${user}">
+<div class="container">
+<!-- 第一種呈現 error 方式 -->
+<ul class="error">
+    <li th:each="error : ${#fields.errors}" th:text="${error}"></li>
+</ul>
+<!-- 第二種呈現 error 方式 -->
+<div class="error" th:if="${#fields.hasErrors('*')}" th:errors="*{*}"></div>
+<form th:action="@{/user/register}" method="post">
+    <table class="table table-bordered border-primary">
+        <tr>
+            <td class="align-middle">使用者名稱</td>
+            <td class="align-middle">
+				<input class="form-control" type="text" name="userName" th:value="*{userName}" />
+            	<!-- 第三種呈現 error 方式 -->
+            	<span class="error" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">使用者名稱錯誤</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle">密碼</td>
+            <td class="align-middle">
+				<input class="form-control" type="password" name="password" />
+            	<span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">密碼錯誤</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle">確認密碼</td>
+            <td class="align-middle">
+				<input class="form-control" type="password" name="confirmPassword" />
+            	<span class="error"
+                      th:if="${#fields.hasErrors('confirmPassword')}"
+                      th:errors="*{confirmPassword}">
+                    確認密碼錯誤
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle">性别</td>
+            <td class="align-middle">
+                <input type="radio" name="sex" value="true" checked/>男
+                <input type="radio" name="sex" value="false" />女
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle">E-mail</td>
+            <td class="align-middle">
+				<input class="form-control" type="text" name="email" th:value="*{email}" />
+				<span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail錯誤</span>
+			</td>
+        </tr>
+        <tr>
+            <td class="align-middle">密碼問題</td>
+            <td class="align-middle"><input class="form-control" type="text" name="pwdQuestion"/></td>
+        </tr>
+        <tr>
+            <td class="align-middle">密碼答案</td>
+            <td class="align-middle"><input class="form-control" type="text" name="pwdAnswer"/></td>
+        </tr>
+        <tr>
+            <td class="align-middle">
+				<input class="btn btn-primary" type="submit" value="註冊"/>
+				<input type="hidden" name="registerIp" th:value="${registerIp}" />
+			</td>
+            <td class="align-middle"><input class="btn btn-warning" type="reset" value="重新填寫"/></td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>
