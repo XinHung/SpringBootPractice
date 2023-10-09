@@ -74,3 +74,42 @@ public class homeController {
 ### HTML註解
 >```<!--/* 我是註解 */-->```
 可以讓瀏覽器中看不到註解
+
+# lombok
+## lombok 可以透過簡單的 annotation 幫助我們節省撰寫 getter, setter 的時間
+```
+<dependency>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok</artifactId>
+	<optional>true</optional>
+</dependency>
+```
+## @AllArgsConstructor
+>自動生成所有參數的建構子
+
+## @NoArgsConstructor
+>自動生成沒有參數的建構子
+
+## @Data
+>懶人包，等於同時加了以下
+> - @Getter/@Setter
+> - @ToString
+> - @EqualsAndHashCode
+> - @RequiredArgsConstructor
+```
+@AllArgsConstructor
+@Data
+public class User {
+    private Integer id;
+    private String userName;
+    private String password;
+}
+```
+
+# 監聽器(Listener)
+## @WebListener
+>宣告此類別為一個監聽器，用法參考 https://github.com/XinHung/SpringBootPractice/blob/main/src/main/java/com/hung/listener/MySessionListener.java
+
+# 攔截器(Interceptor)
+## 實作 HandlerInterceptor 這個 interface
+>範例參考 https://github.com/XinHung/SpringBootPractice/blob/main/src/main/java/com/hung/ch6/interceptor/LoginInterceptor.java
