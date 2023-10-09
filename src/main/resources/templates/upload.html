@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>檔案上傳和下載</title>
+</head>
+<body>
+<p th:text="${uploadMsg}"></p>
+<form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+    <p>
+        <label for="file1" >請選擇要上傳的文件</label>
+        <input type="file" id="file1" name="file" multiple/>
+        <input type="file" id="file2" name="file" multiple/>
+    </p>
+    <p>
+        <input type="submit" value="上傳">
+    </p>
+</form>
+<ul>
+    <li  th:each="file : ${files}">
+        <a th:href="@{/download(fileName=${file})}" th:text="${file}"></a>
+    </li>
+</ul>
+</body>
+</html>
