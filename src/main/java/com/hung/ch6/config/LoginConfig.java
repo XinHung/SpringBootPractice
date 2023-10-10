@@ -18,6 +18,7 @@ public class LoginConfig implements WebMvcConfigurer {
         // 添加不檢查路徑
         registration.excludePathPatterns(
                 "/user/login",
+                "/articles/**",
                 "/**/*.js",
                 "/**/*.css",
                 "/static/**");

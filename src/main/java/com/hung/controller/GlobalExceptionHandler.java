@@ -11,7 +11,7 @@ public class GlobalExceptionHandler {
 	
 	private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(Exception.class)
+    //@ExceptionHandler(Exception.class)
     public ModelAndView handleAllExceptions(Exception e){
         ModelAndView modelAndView = new ModelAndView();
 
